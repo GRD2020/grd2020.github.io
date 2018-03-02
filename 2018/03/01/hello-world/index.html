@@ -40,35 +40,33 @@
       
       <div class="brand">
         <a href="/" class="avatar waves-effect waves-circle waves-light">
-          <img src="/img/avatar.jpg">
+          <img src="/img/myicon.jpg">
         </a>
         <hgroup class="introduce">
           <h5 class="nickname">John Doe</h5>
-          <a href="mailto:277133779@qq.com" title="277133779@qq.com" class="mail">
+          <a href="mailto:GRD2020@163.com" title="GRD2020@163.com" class="mail">
+            
+              <span>G</span>
+            
+              <span>R</span>
+            
+              <span>D</span>
             
               <span>2</span>
             
-              <span>7</span>
+              <span>0</span>
             
-              <span>7</span>
+              <span>2</span>
             
-              <span>1</span>
-            
-              <span>3</span>
-            
-              <span>3</span>
-            
-              <span>7</span>
-            
-              <span>7</span>
-            
-              <span>9</span>
+              <span>0</span>
             
               <span>@</span>
             
-              <span>q</span>
+              <span>1</span>
             
-              <span>q</span>
+              <span>6</span>
+            
+              <span>3</span>
             
               <span>.</span>
             
@@ -81,16 +79,6 @@
           </a>
         </hgroup>
         
-        <ul class="menu-link">
-          
-              <li>
-                <a href="https://github.com/codefine" target="_blank">
-                  <i class="icon icon-lg icon-github"></i>
-                </a>
-              </li>
-            
-        </ul>
-        
       </div>
     </div>
     <div class="scroll-wrap flex-col">
@@ -99,28 +87,21 @@
             <li class="">
               <a href="/"  >
                 <i class="icon icon-lg icon-home"></i>
-                HOME
+                主页
               </a>
             </li>
         
             <li class="">
               <a href="/categories"  >
                 <i class="icon icon-lg icon-th-list"></i>
-                CATEGORIES
+                分类
               </a>
             </li>
         
             <li class="">
               <a href="/tags"  >
                 <i class="icon icon-lg icon-tags"></i>
-                TAGS
-              </a>
-            </li>
-        
-            <li class="">
-              <a href="/archives"  >
-                <i class="icon icon-lg icon-archives"></i>
-                ARCHIVES
+                标签
               </a>
             </li>
         
@@ -221,7 +202,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2018-03-01T07:55:16.438Z" itemprop="dateUpdated">2018-03-01 15:55:16</time>
+    Last updated: <time datetime="2018-03-01T07:55:16.438Z" itemprop="dateUpdated">2018-03-01 15:55:16</time>
 </span><br>
 
 
@@ -231,7 +212,7 @@
     </div>
     <footer>
         <a href="http://yoursite.com">
-            <img src="/img/avatar.jpg" alt="John Doe">
+            <img src="/img/myicon.jpg" alt="John Doe">
             John Doe
         </a>
     </footer>
@@ -253,7 +234,7 @@
     <ul class="reset share-icons">
       
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2018/03/01/hello-world/&title=《Hello World》 — 高荣登的个人博客&pic=http://yoursite.com/img/avatar.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2018/03/01/hello-world/&title=《Hello World》 — 高荣登的个人博客&pic=http://yoursite.com/img/myicon.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -376,7 +357,7 @@
     <ul class="reset share-icons">
       
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2018/03/01/hello-world/&title=《Hello World》 — 高荣登的个人博客&pic=http://yoursite.com/img/avatar.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2018/03/01/hello-world/&title=《Hello World》 — 高荣登的个人博客&pic=http://yoursite.com/img/myicon.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -462,6 +443,24 @@
 <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
 
+
+
+    <script>
+    (function() {
+        var OriginTitile = document.title, titleTime;
+        document.addEventListener('visibilitychange', function() {
+            if (document.hidden) {
+                document.title = '死鬼去哪里了！';
+                clearTimeout(titleTime);
+            } else {
+                document.title = '(つェ⊂)咦!又好了!';
+                titleTime = setTimeout(function() {
+                    document.title = OriginTitile;
+                },2000);
+            }
+        });
+    })();
+</script>
 
 
     
