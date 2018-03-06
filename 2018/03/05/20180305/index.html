@@ -199,7 +199,7 @@
     <div class="content">
         
 <span class="post-time">
-    Last updated: <time datetime="2018-03-05T08:21:31.093Z" itemprop="dateUpdated">2018-03-05 16:21:31</time>
+    最后更新时间：<time datetime="2018-03-05T08:21:31.093Z" itemprop="dateUpdated">2018-03-05 16:21:31</time>
 </span><br>
 
 
@@ -448,6 +448,37 @@
 
 
 
-    
+    <script type="text/javascript">
+/*-------------------------------------------------*/
+/* 鼠标点击显示字体特效！
+/*-------------------------------------------------*/
+var a_idx = 0;
+jQuery(document).ready(function($) {
+$("body").click(function(e) {
+var a = new Array("欢迎您", "么么哒", "你真好", "棒棒哒", "真可爱", "你最美", "喜欢你" ,"真聪明", "爱你哦", "好厉害", "你真帅", "祝福你","很棒哦","unity","好好学习","天天向上");
+var $i = $("<span/>").text(a[a_idx]);
+a_idx = (a_idx + 1) % a.length;
+var x = e.pageX,
+y = e.pageY;
+$i.css({
+"z-index": 99999,
+"top": y - 20,
+"left": x,
+"position": "absolute",
+"font-weight": "bold",
+"color": "#ff6651"
+});
+$("body").append($i);
+$i.animate({
+"top": y - 180,
+"opacity": 0
+},
+1500,
+function() {
+$i.remove();
+});
+});
+});
+</script>
 </body>
 </html>
