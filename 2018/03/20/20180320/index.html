@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+  
+    <link rel="icon" href="">
+  
+    
+  <title>python学习笔记（一） | 高荣登</title>
+  <link rel="stylesheet" href="/style.css">
+  <link rel="stylesheet" href="/lib/jquery.fancybox.min.css">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+  <header>
+  <div class="header-container">
+    <a class='logo' href="/">
+      <span>高荣登</span>
+    </a>
+    <ul class="right-header">
+      
+        <li class="nav-item">
+          
+            <a href="/about" class="item-link">个人简介</a>
+          
+        </li>
+      
+    </ul>
+  </div>
+</header>
+
+  <main id='post'>
+  <div class="content">
+    <article>
+        <section class="content markdown-body">
+          <h1>python学习笔记（一）</h1>
+          <div class='post-meta'>
+            <i class="fa fa-calendar" aria-hidden="true"></i> <time>2018年03月20日</time>
+            
+            
+          </div>
+          <p><img src="https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=285340311,2418665357&amp;fm=27&amp;gp=0.jpg" alt=""></p>
+<hr>
+<h4 id="现在开始整理一下自己学习python这门语言的心得和体会，学习python只是单纯的感兴趣，目标是可以学会使用python从网站上面爬一下小说，图片啥的。"><a href="#现在开始整理一下自己学习python这门语言的心得和体会，学习python只是单纯的感兴趣，目标是可以学会使用python从网站上面爬一下小说，图片啥的。" class="headerlink" title="现在开始整理一下自己学习python这门语言的心得和体会，学习python只是单纯的感兴趣，目标是可以学会使用python从网站上面爬一下小说，图片啥的。"></a>现在开始整理一下自己学习python这门语言的心得和体会，学习python只是单纯的感兴趣，目标是可以学会使用python从网站上面爬一下小说，图片啥的。</h4><hr>
+<h5 id="这是刚开始就直接上手的一段代码，目的是爬取我的小伙伴rkk的网站源码，他的点击效果实在是很吸引我。嘿嘿，开始干吧。"><a href="#这是刚开始就直接上手的一段代码，目的是爬取我的小伙伴rkk的网站源码，他的点击效果实在是很吸引我。嘿嘿，开始干吧。" class="headerlink" title="这是刚开始就直接上手的一段代码，目的是爬取我的小伙伴rkk的网站源码，他的点击效果实在是很吸引我。嘿嘿，开始干吧。"></a>这是刚开始就直接上手的一段代码，目的是爬取我的小伙伴rkk的网站源码，他的点击效果实在是很吸引我。嘿嘿，开始干吧。</h5><p>一 ，我们先找到入口即root_url ,在这里我要访问的是凯凯的网站。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 目标网址</span><br><span class="line">root_url = &quot;http://www.rkk9456.com/&quot;</span><br></pre></td></tr></table></figure></p>
+<p>二 ，找到网站入口以后，我们就可以发送请求了。在这里我们要引入一个模块：import urllib.request。代码是这样的。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 请求</span><br><span class="line">request = urllib.request.Request(root_url)</span><br></pre></td></tr></table></figure></p>
+<p>三 ， 发送请求过后，我们就可以到达他的网页了，现在我们把他的网页下载下来。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 下载网页</span><br><span class="line">response = urllib.request.urlopen(request)</span><br></pre></td></tr></table></figure></p>
+<p>四 ，网页下载下来以后，我们就可以打开网页啦，这里要注意的是打开的编码格式。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># 打开网页</span><br><span class="line">data = response.read()</span><br><span class="line">data = data.decode(&apos;utf-8&apos;)</span><br></pre></td></tr></table></figure></p>
+<p>五 ，到这里我们就成功啦，现在把下载的网页数据打印出来。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 打印网页源码</span><br><span class="line">print(data)</span><br></pre></td></tr></table></figure></p>
+<hr>
+<h3 id="看着这一堆英文字母，我的脑袋是有点大的，嗯，我其实是想把这个数据里面的超链接都提取出来，看看是不是有什么惊喜。"><a href="#看着这一堆英文字母，我的脑袋是有点大的，嗯，我其实是想把这个数据里面的超链接都提取出来，看看是不是有什么惊喜。" class="headerlink" title="看着这一堆英文字母，我的脑袋是有点大的，嗯，我其实是想把这个数据里面的超链接都提取出来，看看是不是有什么惊喜。"></a>看着这一堆英文字母，我的脑袋是有点大的，嗯，我其实是想把这个数据里面的超链接都提取出来，看看是不是有什么惊喜。</h3><hr>
+<h5 id="现在还是原来的项目，只不过我们要搞点复杂的事请。"><a href="#现在还是原来的项目，只不过我们要搞点复杂的事请。" class="headerlink" title="现在还是原来的项目，只不过我们要搞点复杂的事请。"></a>现在还是原来的项目，只不过我们要搞点复杂的事请。</h5><p>一 ，现在我的目标是提取这个数据里面的所有超链接，嗯，目标很明确，开始干吧。首先我要写一个方法，先上个代码。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">def find_all_link(url):</span><br><span class="line">    proto, rest = urllib.request.splittype(url)</span><br><span class="line">    domain = urllib.request.splithost(rest)[0]</span><br><span class="line">    # 读取网页内容</span><br><span class="line">    html = urllib.request.urlopen(url).read()</span><br><span class="line">    # 提取超链接</span><br><span class="line">    a = BeautifulSoup(html).findAll(&apos;a&apos;)</span><br><span class="line">    # 过滤</span><br><span class="line">    a_list = [i.attrs[&apos;href&apos;] for i in a if i.attrs[&apos;href&apos;][0] != &apos;j&apos;]</span><br><span class="line">    # 将形如#comment-text的锚点补全成https://www.ruanyifeng.com/blog/2015/05/co.html,将形如/feed.html补全为https://www.ruanyifeng.com/feed.html</span><br><span class="line">    alist = map(lambda i: proto + &apos;://&apos; + domain + i if i[0] == &apos;/&apos; else url + i if i[0] == &apos;#&apos; else i, a_list)</span><br><span class="line">    return alist</span><br></pre></td></tr></table></figure></p>
+<p>二 ， 上面这个代码是什么意思呢？我看了以后还是可以理解的，我测试了一下，功能是可以实现的，什么？你要我自己写？我刚入门还不会。现在我们写一个主程序入口，嗯就是这样。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">if __name__ == &quot;__main__&quot;:</span><br><span class="line">    for a in find_all_link(root_url):</span><br><span class="line">        print(a)</span><br></pre></td></tr></table></figure>
+<p>三 ，到这里我就得到凯凯整个网站的信息了，在这里要说一下，凯凯是一个大帅哥，也是一个程序员，总有很多新奇的想法，喜欢钻研各种技术，是我努力地目标。</p>
+<hr>
+<h4 id="最后上凯凯的网站"><a href="#最后上凯凯的网站" class="headerlink" title="最后上凯凯的网站"></a>最后上凯凯的网站</h4><p><a href="http://www.rkk9456.com/" target="_blank" rel="noopener">凯凯的网站</a></p>
+
+        </section>
+    </article>
+    
+        
+  </div>
+  <aside>
+    
+    <div class="toc-container">
+        <h1>目录</h1>
+        <div class="content">
+            <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#现在开始整理一下自己学习python这门语言的心得和体会，学习python只是单纯的感兴趣，目标是可以学会使用python从网站上面爬一下小说，图片啥的。"><span class="toc-number">1.</span> <span class="toc-text">现在开始整理一下自己学习python这门语言的心得和体会，学习python只是单纯的感兴趣，目标是可以学会使用python从网站上面爬一下小说，图片啥的。</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#这是刚开始就直接上手的一段代码，目的是爬取我的小伙伴rkk的网站源码，他的点击效果实在是很吸引我。嘿嘿，开始干吧。"><span class="toc-number">1.1.</span> <span class="toc-text">这是刚开始就直接上手的一段代码，目的是爬取我的小伙伴rkk的网站源码，他的点击效果实在是很吸引我。嘿嘿，开始干吧。</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#看着这一堆英文字母，我的脑袋是有点大的，嗯，我其实是想把这个数据里面的超链接都提取出来，看看是不是有什么惊喜。"><span class="toc-number"></span> <span class="toc-text">看着这一堆英文字母，我的脑袋是有点大的，嗯，我其实是想把这个数据里面的超链接都提取出来，看看是不是有什么惊喜。</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#现在还是原来的项目，只不过我们要搞点复杂的事请。"><span class="toc-number">0.1.</span> <span class="toc-text">现在还是原来的项目，只不过我们要搞点复杂的事请。</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#最后上凯凯的网站"><span class="toc-number">1.</span> <span class="toc-text">最后上凯凯的网站</span></a></li></ol>
+        </div>
+    </div>
+    
+  </aside>
+</main>
+
+
+
+  <footer>
+  <div class="copyright">
+    <div>
+      &copy; 2018 | Powered by <a href="https://hexo.io" target="_blank">Hexo</a>&nbsp
+    </div>
+    <div>
+      Theme by <a href="https://github.com/lewis-geek/hexo-theme-Aath" target="_blank">Aath</a>
+    </div>
+  </div>
+</footer>
+
+
+<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script src="/lib/in-view.min.js"></script>
+<script src="/lib/lodash.min.js"></script>
+<script>
+  var isDown = true
+  var oldY = 0
+  inView.offset(50)
+
+  document.body.addEventListener('touchstart', function(){});
+  
+  window.addEventListener('scroll', _.throttle(e => {
+    var currentY = window.scrollY
+    if((oldY - currentY) < 0) {
+      isDown = true
+    } else {
+      isDown = false
+    }
+    oldY = currentY
+  }, 250))
+
+  $("article img").each(function() {
+      var strA = "<a data-fancybox='gallery' href='" + this.src + "'></a>";
+      $(this).wrapAll(strA);
+  });
+
+  $('.toc-link').each(function() {
+      var href = $(this).attr("href");
+      
+      inView(href).on('exit', () => {
+        if (isDown) {
+          handleActive(href)
+        }
+      })
+
+      inView(href).on('enter', () => {
+        if (!isDown) {
+          handleActive(href)
+        }
+      })
+
+      this.onclick = function(e) {
+        var pos = $(href).offset().top - 10;
+        $("html,body").animate({scrollTop: pos}, 300);
+        setTimeout(() => {
+          handleActive(href)
+        }, 350)
+        return false
+      }
+  })
+
+  function handleActive(href) {
+    document.querySelectorAll('.toc-link').forEach(elm => {
+      elm.classList.remove('active')
+    })
+    document.querySelector(".toc [href='"+ href +"']").classList.add('active')
+  }
+</script>
+<script src="/lib/jquery.fancybox.min.js"></script>
+
+
+</body>
+</html>
